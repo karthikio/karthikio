@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>karthik!o &bullet; posts</title>
+{% endblock %}
+
+{% block list %}
+  <div class="list-container">
+    <h1 class="page-heading">Recently Published</h1>
+    <div class="posts-container">
+      {% if posts %}
+        {% for post in posts %}
+          <div class="post">
+            <a href="{% url 'detail-view' post.slug %}">
+              <div class="post-img-container">
+                {% if post.image %}
+                  <img class="post-image" src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+              </div>
+            </a>
+            <div class="post-text-container">
+            
+           
+              <h2 class="text-l title">
+                <a href="{% url 'detail-view' post.slug %}">
+                {{ post.title }}
+                </a>
+              </h2>
+
+              <a href="{% url 'detail-view' post.slug %}">
+                <p class="text-s info">{{ post.info }}</p>
+              </a>
+
+              <a href="{% url 'detail-view' post.slug %}">
+                <p class="text-s created">{{ post.created }}</p>
+              </a>
+
+              {% if post.tag.all %}
+                <div class="tags-container">
+                  {% for tag in post.tag.all %} 
+                    <p class="text-s tag">#{{ tag }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <div class="bottom-container">
+    <p class="text-s bottom-text">Have any questions or just wanna say hello. I'll try my best to reply.</p>
+    <a href="mailto:developer.karthik@icloud.com">
+      <div class="btn-round">
+        <p class="text-btn text-s">contact</p>
+      </div>
+    </a>
+  </div>
+{% endblock %}

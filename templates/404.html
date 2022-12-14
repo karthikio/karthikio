@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pagenotfound %}
+  <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 60vh;">
+    <img width="180px" src="{% static 'images/page404.png' %}" alt="">
+    <p class="text-m" style="margin: 20px 0;">Page not found!</p>
+    <p class="text-s">The link you followed may be broken</p>
+    <p class="text-s" style="margin: 5px 0;">Redirect to <a style=" text-decoration: none; color: #8ab4f8;" href="{% url 'home-view' %}">home</a> page</p>
+  </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title%}
+  <title>karthik!o &bullet; {{ post.title }}</title>
+{% endblock %}
+
+{% block navbar %}
+<div class="nav-container detail-nav">
+  <h2 class="logo text-s">karthik!o</h2>
+  <ul class="nav-links">
+    <li class="text-s"><a href="{% url 'home-view' %}">home</a></li>
+    <li class="text-s"><a href="{% url 'list-view' %}">posts</a></li>
+    <li class="text-s"><a href="mailto:developer.karthik@icloud.com">contact</a></li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block detail %}
+  <body style="background-color: #1e1e1e;">
+    <div class="detail-container">
+      <img class="detail-image" src="{{ post.image.url }}" alt="">
+      <div class="overlay"></div>
+  
+      <div class="detail-content-container">
+        <h1 class="text-l title">{{ post.title }}</h1>
+        <div class="detail-content">
+          
+          <p class="text-s info">{{ post.info }}</p>
+          <p class="text-s body">{{ post.body|safe }}</p>
+
+          {% if post.tag.all %}
+            <div class="tags-container">
+              {% for tag in post.tag.all %}
+                <p class="text-s tag">#{{tag}}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <p class="text-s created">{{ post.created }}</p>
+
+        </div>
+      </div>
+    </div>
+  </body>
+{% endblock %}

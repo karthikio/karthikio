@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>karthik!o &bullet; home</title>
+{% endblock %}
+
+
+{% block navbar %}
+{% endblock %}
+
+{% block home %}
+  <div class="home-container">
+    <div class="nav-container">
+      <h2 class="logo text-s">karthik!o</h2>
+      <ul class="nav-links">
+        <li class="text-s"><a href="">home</a></li>
+        <li class="text-s"><a href="{% url 'list-view' %}">posts</a></li>
+        <li class="text-s"><a href="mailto:developer.karthik@icloud.com">contact</a></li>
+      </ul>
+    </div>
+
+    <div class="showcase-container">
+      <div class="showcase">
+        <div class="showcase-title">
+          <p class="text-s">I'm karthik santhosh</p>
+          <h1 class="text-l">Full Stack Developer.</h1>
+        </div>
+        <div class="showcase-text">
+          <p class="text-s">I'm a student and a full stack developer,</p>
+          <p class="text-s">I build interactive web applications and ios mobile apps.</p>
+          <p class="text-s">python / django / javaScript / swift</p>  
+        </div>
+      </div>
+      <img class="showcase-img" src="{% static 'images/portfolio-3d.png' %}" alt="">
+    </div>
+
+    <div class="bottom-container">
+      <p class="text-s bottom-text">Wanna learn full stack web development. Check my posts.</p>
+      <a href="{% url 'list-view' %}">
+      <div class="btn-round">
+        <p class="text-btn text-s">
+          posts
+        </p>
+      </div>
+    </a>
+    </div>
+  </div>
+{% endblock %}
